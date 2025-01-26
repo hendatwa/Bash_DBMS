@@ -5,14 +5,14 @@ db_menu() {
   while true; do
     echo "    Database Menu:
     ----------------------"
-    echo "1. Create Table"
-    echo "2. Drop Table"
-    echo "3. Insert Record"
-    echo "4. Update Record"
-    echo "5. Truncate Table"
-    echo "6. List Tables"
-    echo "7. Select"
-    echo "8. Exit"
+    echo "1) Create Table"
+    echo "2) Drop Table"
+    echo "3) Insert Record"
+    echo "4) Update Record"
+    echo "5) Truncate Table"
+    echo "6) List Tables"
+    echo "7) Select"
+    echo "8) Exit"
     read -p "Choose an option: " option
     case $option in
       1) create_table ;;
