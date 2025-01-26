@@ -17,7 +17,7 @@ db_menu() {
     case $option in
       1) create_table ;;
       2) drop_table ;;
-      3) echo into_table ;;
+      3) into_table ;;
       4) update_table ;;
       5) truncate_table ;;
       6) list_tables ;;
