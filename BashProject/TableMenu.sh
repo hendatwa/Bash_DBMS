@@ -263,6 +263,27 @@ select_from_table() {
     echo "Invalid selection type. Please enter 'all' or 'record'."
   fi
 }
+into_table(){
+  AllTablesName=($(ls "$current_database" | grep -E '\.txt$' | sed 's/.txt$//' | grep -v '_meta'))
+  if [[ ${#AllTablesName[@]} -eq 0 ]]; then
+    echo echo "There is no Tables Created. "
+    return
+  fi
+  local PS3="TableChoice>> "
+  select choice in "${AllTablesName[@]}" "Cancel";
+  do
+    REPLY=$REPLY-1
+    if [[ $choice == "Cancel" ]]; then
+      break
+    elif [[ -n "$choice" ]]; then
+      insert_record
+      break
+      else
+      echo "Invalid choice Try again."
+    fi
+  done
+
+}
 insert_record() {
   table_file="$current_database/${choice}.txt"
   metadata_file="$current_database/${choice}_meta.txt"
