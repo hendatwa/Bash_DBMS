@@ -107,6 +107,7 @@ MainMenu(){
         ;;
         "Create DataBase")
             DBCreate
+            break
         ;;
         "Drop DataBase")
             DBDrop
