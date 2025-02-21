@@ -394,7 +394,7 @@ update_record() {
     colDatatype+=("$(cut -d ':' -f2 <<< "$col")")
   done
 
-  read -rp "Enter the number of the record to update: " update_record
+  read -rp "Enter the PK of the record to update: " update_record
   record_line=$(grep -n "^$update_record," "$table_file" | cut -d: -f1)
 
   if [[ -z "$record_line" ]]; then
@@ -405,7 +405,7 @@ update_record() {
 
   new_record="$update_record"
 
-  # Prompt for updated values for each column except ID
+ 
   for i in "${!colNames[@]}"; do
     if [[ "$i" -ne 0 ]]; then
       current_value=$(echo "$record" | cut -d',' -f$((i + 1)))
